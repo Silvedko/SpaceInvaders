@@ -14,9 +14,7 @@ public class ShipMovementController : MonoBehaviour {
 
 	[SerializeField]
 	JoystickDirection jDir;
-
-	bool shipCanMove = true;
-
+	
 	void Start () 
 	{
 		

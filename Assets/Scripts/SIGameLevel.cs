@@ -9,7 +9,7 @@ public enum InvadersSortingType
 }
 
 [Serializable]
-public class CIGameLevel : ScriptableObject 
+public class SIGameLevel : ScriptableObject 
 {
 	// flying invaders positions
 	public Vector2 [] flyingInvadersPositions;
