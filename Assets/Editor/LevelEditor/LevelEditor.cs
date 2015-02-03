@@ -5,18 +5,18 @@ using UnityEditor;
 //[CustomEditor(typeof(CIGameLevel))]
 public class LevelEditor : EditorWindow
 {
-	static CIGameLevel level;
+	static SIGameLevel level;
 	static int levelCount; 
 	static string outputFileName = "Level_";
 	static int outputLevelCounter = 0;
 
 
-	[MenuItem("Example/Display level creator window")]
+	[MenuItem("Space Invaders/Display level creator window")]
 	static void Initialize() 
 	{
 		EditorWindow.GetWindow(typeof(LevelEditor), true, "My Empty Window");
 
-		level = ScriptableObject.CreateInstance<CIGameLevel> ();
+		level = ScriptableObject.CreateInstance<SIGameLevel> ();
 		SetLevelsName ();
 
 	}
@@ -24,10 +24,14 @@ public class LevelEditor : EditorWindow
 	public void OnGUI() 
 	{
 		if(level)
-			level.sortingType = (InvadersSortingType)EditorGUI.EnumPopup(new Rect(3,3,position.width - 6, 15),
+			level.sortingType = (InvadersSortingType)EditorGUI.EnumPopup(new Rect(3,10,position.width - 6, 15),
 														   "Show:",
 								                           level.sortingType);
-		outputFileName = EditorGUILayout.TextField(outputFileName,  GUILayout.Height(position.height/20)); 
+		EditorGUILayout.BeginHorizontal();
+		outputFileName = EditorGUILayout.TextField(outputFileName,  GUILayout.Height(position.height/20), GUILayout.Width(position.width * 2 / 3 )); 
+		EditorGUILayout.LabelField("File name", GUILayout.Width (position.width / 3));
+
+		EditorGUILayout.EndHorizontal ();
 
 		if(GUILayout.Button("Save"))
 		{

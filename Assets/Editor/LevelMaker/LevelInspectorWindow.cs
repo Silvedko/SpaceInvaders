@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEditor;
 
-[CustomEditor(typeof(CIGameLevel))]
+[CustomEditor(typeof(SIGameLevel))]
 public class LevelInspectorWindow : Editor
 {
 	public override void OnInspectorGUI ()
